@@ -1,8 +1,11 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://user-images.githubusercontent.com/68740248/159707529-114ae896-90b7-4198-9d6a-b1f0d1d6639f.png)
 
-## Available Scripts
+# Начало работы с приложением React
+
+Этот проект был загружен с помощью [Create React App](https://github.com/facebook/create-react-app).
+
+## Доступные скрипты
 
 Вы можете запустить проект, выполнив в терминале следующую комнаду:
 
