@@ -1,38 +1,113 @@
 .App {
-  text-align: center;
+    margin: 0 100px;
+    max-width: 300px;
+    font-family: Roboto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button{
+    font-family: Roboto;
+    font-size: 14px;
 }
+
+.buttons-card_1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.buttons-card_2 {
+    display: flex;
+}
+
+.buttons-card_1 div {
+    padding-top: 2px;
+}
+
+.buttons-card_2 div {
+    padding-top: 2px;
+}
+
+.btn {
+    margin-right: 2px;
+    margin-top: 2px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #DDDDDD;
+    box-sizing: border-box;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn_pressed {
+    background-color: #FFD205;
+}
+
+div {
+    padding-top: 10px;
+}
+
+.field-name {
+    font-style: normal;
+    font-weight: 400;
+    padding-right: 8px;
+}
+
+.field-description{
+    font-weight: 300;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    justify-content: space-between;
+}
+
+.header div {
+    padding-top: 0;
+}
+
+.header button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.btn-result {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.btn-result button {
+    width: 178px;
+    height: 43px;
+    background-color: white;
+    border: 1px solid #DDDDDD;
+    box-sizing: border-box;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    color: #61dafb;
 }
