@@ -9,31 +9,38 @@ function App() {
     const [numberField2, setNumberField2] = useState([]);
     const [randomNumbersField1, setRandomNumbersField1] = useState([]); //массив уникальных сгенерированых чисел для первого поля
     const [randomNumbersField2, setRandomNumbersField2] = useState([]); //массив уникальных сгенерированых чисел для второго поля
-    const [cellActiveCountField1, setCellActiveCountField1] = useState(0);   //количество активных ячеек - поле 1
-    const [cellActiveCountField2, setCellActiveCountField2] = useState(0);   //количество активных ячеек - поле 2
     const [btnActiveCount, setBtnActiveCount] = useState([]);    //массив объектов с активными ячеейками - поле 1
     const [numberActiveBtn, setNumberActiveBtn] = useState([]);     //массив объектов с активным ячейками - поле 2
+    let isDisabledBtnField1 = false;
+    let isDisabledBtnField2 = false;
+
+
+    if(btnActiveCount.length === 8){
+        isDisabledBtnField1 = true
+    }
+
+    if(numberActiveBtn.length === 1){
+        isDisabledBtnField2 = true
+    }
 
     const clickBtn = (cellNumber) => {
-        const btnActive = btnActiveCount
+        const btnActive = [...btnActiveCount]
         let findNumber = numberField1.find(cell => cell.number === cellNumber);
         const newNumbers = numberField1[cellNumber - 1];
         newNumbers.isActive = !newNumbers.isActive;
-        newNumbers.isActive ? setCellActiveCountField1(cellActiveCountField1 + 1) : setCellActiveCountField1(cellActiveCountField1 - 1);
         if (newNumbers.isActive) {
-            btnActive.push(newNumbers.number);
+            btnActive.push(newNumbers);
             setBtnActiveCount(btnActive);
         }
     }
 
     const clickBtnField2 = (cellBtn) => {
-        const btnActive = numberActiveBtn
+        const btnActive = [...numberActiveBtn]
         let findNumber = numberField2.find(cell => cell.number === cellBtn);
         const newNumbers = numberField2[cellBtn - 1];
         newNumbers.isActive = !newNumbers.isActive;
-        newNumbers.isActive ? setCellActiveCountField2(cellActiveCountField2 + 1) : setCellActiveCountField2(cellActiveCountField2 - 1);
         if (newNumbers.isActive) {
-            btnActive.push(newNumbers.number)
+            btnActive.push(newNumbers)
             setNumberActiveBtn(btnActive)
         }
     }
@@ -244,7 +251,7 @@ function App() {
                     className='field-description'>Отметьте 8 чисел</span></div>
                 <div className='buttons-card_1'>
                     {numberField1.map((number, i) => (
-                            <CellButton key={`f1-${number.number}`} clickBtn={clickBtn} number={number}/>
+                            <CellButton key={`f1-${number.number}`} clickBtn={clickBtn} number={number} isDisabledBtn={isDisabledBtnField1}/>
                         )
                     )}
                 </div>
@@ -256,7 +263,7 @@ function App() {
                 </div>
                 <div className='buttons-card_2'>
                     {numberField2.map((number) => (
-                            <CellButton key={number.number} clickBtn={clickBtnField2} number={number}/>
+                            <CellButton key={number.number} clickBtn={clickBtnField2} number={number} isDisabledBtn={isDisabledBtnField2}/>
                         )
                     )}
                 </div>
